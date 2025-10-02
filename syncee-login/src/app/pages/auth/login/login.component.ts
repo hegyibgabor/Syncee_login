@@ -3,7 +3,7 @@ import { RouterModule, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/login.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @Component({
@@ -25,27 +25,27 @@ export class LoginComponent {
     });
   }
 
- onSubmit() {
+  onSubmit() {
     const { email, password, rememberMe } = this.loginForm.value;
     this.authService.login(email, password).subscribe({
       next: (res: any) => {
         console.log('Login success', res);
 
-      if (res.token) {
-        if (rememberMe) {
-          localStorage.setItem('token', res.token);
-        } else {
-          sessionStorage.setItem('token', res.token);
+        if (res.token) {
+          if (rememberMe) {
+            localStorage.setItem('token', res.token);
+          } else {
+            sessionStorage.setItem('token', res.token);
+          }
         }
-      }
-            if (res.user) {
-        const userData = JSON.stringify(res.user);
-        if (rememberMe) {
-          localStorage.setItem('user', userData);
-        } else {
-          sessionStorage.setItem('user', userData);
+        if (res.user) {
+          const userData = JSON.stringify(res.user);
+          if (rememberMe) {
+            localStorage.setItem('user', userData);
+          } else {
+            sessionStorage.setItem('user', userData);
+          }
         }
-      }
 
         this.router.navigate(['/dashboard']);
       },
@@ -54,5 +54,9 @@ export class LoginComponent {
         alert('Login failed: ' + (err.error || err.message));
       }
     });
+  }
+
+  loginWithGoogle() {
+    window.location.href = 'http://localhost:3000/auth/google';
   }
 }

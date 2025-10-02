@@ -12,6 +12,10 @@
         <p><strong>Created:</strong> {{ user?.created_at | date:'medium' }}</p>
       </div>
 
+      <div class="text-start mb-3">
+        <p><strong>Email:</strong> {{ user?.email}}</p>
+      </div>
+
       <button class="btn btn-dark w-50 mb-3 p-2 mx-auto" (click)="goToBinanceList()">Binance</button>
 
       <button class="btn btn-danger w-50 margin-auto mx-auto mb-3 p-2" (click)="logout()">Logout</button>

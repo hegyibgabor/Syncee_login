@@ -45,7 +45,8 @@ export class RegisterComponent {
       },
       error: (err: any) => {
         console.error('Registration error', err);
-        alert('Registration failed: ' + (err.error || err.message));
+        const errorMessage = err?.error?.error || err?.message || 'Unknown error';
+        alert('Registration failed: ' + errorMessage);
       }
     });
   }

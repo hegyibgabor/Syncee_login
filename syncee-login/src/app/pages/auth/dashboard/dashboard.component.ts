@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
     if (storedUser) {
       this.user = JSON.parse(storedUser);
     } else {
-      // If no user data, redirect to login
+      // Ha nincs user data, akkor vissza loginra
       this.router.navigate(['/login']);
     }
   }
