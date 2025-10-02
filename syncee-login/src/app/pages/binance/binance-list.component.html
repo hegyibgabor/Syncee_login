@@ -1,0 +1,20 @@
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center outer-container">
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card p-4 text-center">
+            <div class="mb-4">
+                <img src="images/syncee_logo.png" alt="Syncee Logo" class="img-fluid" style="max-width: 9rem;">
+            </div>
+
+            <button class="btn btn-warning w-50 margin-auto mx-auto mb-3 p-2" (click)="Back()">Back</button>
+
+            <ul *ngIf="!loading && !error">
+                <li *ngFor="let currency of currencies">
+                    <strong>{{ currency.id }}</strong> - {{ currency.name }}
+                    (Min size: {{ currency.min_size }})
+                </li>
+            </ul>
+
+            <footer class="text-center mt-4 mb-2 text-muted small">2022 Syncee. All rights reserved.</footer>
+        </div>
+    </div>
+</div>
