@@ -59,4 +59,9 @@ export class LoginComponent {
   loginWithGoogle() {
     window.location.href = 'http://localhost:3000/auth/google';
   }
+
+  alertNotImplemented(event: Event) {
+    event.preventDefault();
+    alert("Not Implemented!");
+  }
 }

@@ -1,18 +1,14 @@
 @use '@angular/material' as mat;
 
-// Create a theme directly from a seed color
 html {
-  @include mat.theme((
-    color: (
-      primary: mat.$violet-palette, // fallback
-      seed: #5b2dff,                // your custom seed color
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
+  @include mat.theme((color: (primary: mat.$violet-palette, // fallback
+        seed: #5b2dff,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
 }
 
-// Base styles
 body {
   color-scheme: light;
   background-color: var(--mat-sys-surface);
@@ -21,7 +17,8 @@ body {
   margin: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
