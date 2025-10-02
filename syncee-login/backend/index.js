@@ -17,9 +17,9 @@ app.use(passport.initialize());
 // Nyilván így nem tárolunk semmilyen jelszót és érzékeny információt.
 // Érdemes secret server-ről vagy cloud library-ből. 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
+  host: 'dpg-d3f6n7ffte5s73bnt1t0-a',
+  user: 'testuser',
+  password: 'Kwl54xEuJZONM1VY4MFd9sVQunDlfQLm',
   database: 'syncee_db'
 });
 
