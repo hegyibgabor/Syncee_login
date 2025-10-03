@@ -64,8 +64,13 @@ node index.js
 * Google bejelentkezés esetén az első belépéskor a `created_at` mező üres maradhat
 * A "Forget Password" funkció jelenleg csak placeholder, nem működik
 * Harcode-olt adatbázis és lokális futás, mert nagyon nehéz ingyenes szervereket találni demózás céljából
+* Nincs mód a jelszó megváltoztatására
+
+## További fejlesztési lehetőségek
+
+* Az ismert hibák és hiányosságok javítása és pótlása
+* Dashboard átdolgozása hogy szebb legyen és több információt jelenítsen meg
+* SMTP automatikus levelező rendszer implementálása, mely regisztrációkor
+és elfelejtett jelszó esetén is levelet küld
+* Több, harmadik fél általi bejelentkezési opció (Apple, social mediák)
 ---
-
-Ha szeretnéd, készíthetek hozzá egy **egyszerű diagramot a rendszer felépítéséről**, ami vizuálisan is mutatja a frontend, backend és adatbázis kapcsolatát. Ez sokszor jól jön a README-ban.
-
-Szeretnéd, hogy csináljam?
