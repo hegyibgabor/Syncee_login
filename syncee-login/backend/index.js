@@ -8,8 +8,6 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const app = express();
 
-console.log('🚀 SERVER STARTING - This should appear when you start the server');
-
 app.use(cors());
 app.use(express.json());
 app.use(passport.initialize());
@@ -23,7 +21,7 @@ const db = mysql.createConnection({
   database: 'syncee_db'
 });
 
-// ---------------- REGULAR REGISTER ----------------
+// --------- Register route
 app.post('/register', async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) return res.status(400).send({ error: 'Missing fields' });
@@ -47,13 +45,13 @@ app.post('/register', async (req, res) => {
   });
 });
 
-// ---------------- REGULAR LOGIN ----------------
+// --------- Login route
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) return res.status(400).send('Missing fields');
 
   db.query('SELECT * FROM users WHERE email = ?', [email], async (err, results) => {
-    if (err) return res.status(500).send(err);
+    if (err) return res.status(500).send({ error: 'Database error' });
     if (results.length === 0) return res.status(400).send('User not found');
 
     const user = results[0];
@@ -104,7 +102,7 @@ passport.use(new GoogleStrategy({
   });
 }));
 
-// ---------------- GOOGLE ROUTES ----------------
+// --------- Google route
 app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
@@ -120,4 +118,5 @@ app.get('/auth/google/callback',
     );
   }
 );
-app.listen(3000, () => console.log('✅ Server running on port 3000'));
+
+app.listen(3000, () => console.log('Server running on port 3000'));
